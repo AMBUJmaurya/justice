@@ -1,0 +1,394 @@
+{% extends 'base.html' %}
+
+{% block title %}ByLaw Site - Your SUPER-power{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+    <section class="hero-new" style="background-image: linear-gradient(rgba(26, 52, 88, 0.8), rgba(44, 90, 160, 0.8)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1920&q=80'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <div class="hero-content-new">
+            <div class="container">
+                <div class="hero-wrapper">
+                    <!-- Left Content -->
+                    <div class="hero-left">
+                        <span class="hero-tag">EXPERT TEAM</span>
+                        <h1 class="hero-main-title">
+                            <span class="legal-experts-line">Legal Experts</span>
+                            <span class="support-justice-line">Support & Justice</span>
+                        </h1>
+                        <p class="hero-description">Trusted legal guidance for individuals, families, and businesses—focused on clear advice, careful documentation, and responsible court representation.</p>
+                        <a href="#" class="btn-primary-hero">Get Started <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <!-- Right Content -->
+                    <div class="hero-right">
+                        <div class="hero-circle">
+                            <svg class="circle-text-svg" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
+                                <path id="circle-path" d="M 140,140 m -115,0 a 115,115 0 1,1 230,0 a 115,115 0 1,1 -230,0" fill="none"/>
+                                <text class="circle-text-element">
+                                    <textPath href="#circle-path" startOffset="0%">
+                                        Adathan Collaboration law Services EST 2015
+                                    </textPath>
+                                </text>
+                            </svg>
+                            <div class="circle-play">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="hero-carousel">
+                            <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+                            <div class="carousel-indicators">
+                                <span class="indicator"></span>
+                                <span class="indicator active">2</span>
+                                <span class="indicator"></span>
+                            </div>
+                            <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">MULTIDISCIPLINARY TEAM</span>
+                <h2 class="section-title">We <span class="highlight-word">Expertise</span> On</h2>
+                <p>We assist with consultation, drafting, and representation across key practice areas. We start with your documents and facts, then build a clear plan for the next steps.</p>
+            </div>
+            <div class="expertise-grid">
+                {% if practice_areas %}
+                {% for area in practice_areas %}
+                <div class="expertise-item{% if area.image_url %}{% endif %}" {% if area.image_url %}data-bg-image="{{ area.image_url }}"{% endif %}>
+                    <div class="expertise-icon">
+                        <i class="{{ area.icon_class|default:'fas fa-balance-scale' }}"></i>
+                    </div>
+                    <h3>{{ area.title }}</h3>
+                    {% if area.case_count %}
+                    <p class="case-count">({{ area.case_count }} CASE SOLVED)</p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="expertise-item" data-bg-image="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=600&q=80">
+                    <div class="expertise-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Family Law</h3>
+                    <p class="case-count">(2459 CASE SOLVED)</p>
+                </div>
+                <div class="expertise-item" data-bg-image="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80">
+                    <div class="expertise-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Criminal Law</h3>
+                    <p class="case-count">(6809 CASE SOLVED)</p>
+                </div>
+                <div class="expertise-item" data-bg-image="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80">
+                    <div class="expertise-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>Civil Law</h3>
+                    <p class="case-count">(9460 CASE SOLVED)</p>
+                </div>
+                <div class="expertise-item" data-bg-image="https://images.unsplash.com/photo-1564069114553-7215e1ff1890?w=600&q=80">
+                    <div class="expertise-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Employment Law</h3>
+                    <p class="case-count">(8890 CASE SOLVED)</p>
+                </div>
+                <div class="expertise-item more-services-card">
+                    <div class="expertise-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>More Services</h3>
+                </div>
+                <div class="expertise-item" data-bg-image="https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=600&q=80">
+                    <div class="expertise-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Real Estate Law</h3>
+                    <p class="case-count">(2430 CASE SOLVED)</p>
+                </div>
+                <div class="expertise-item" data-bg-image="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=600&q=80">
+                    <div class="expertise-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Compensation</h3>
+                    <p class="case-count">(1460 CASE SOLVED)</p>
+                </div>
+                <div class="expertise-item" data-bg-image="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80">
+                    <div class="expertise-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Cases Successions</h3>
+                    <p class="case-count">(6488 CASE SOLVED)</p>
+                </div>
+                <div class="expertise-item" data-bg-image="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80">
+                    <div class="expertise-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Bank Law</h3>
+                    <p class="case-count">(1843 CASE SOLVED)</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Expert Legal Support Hero Section -->
+    <section class="expert-legal-hero" style="background-image: linear-gradient(rgba(26, 52, 88, 0.95), rgba(44, 90, 160, 0.95)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1920&q=80'); background-size: cover; background-position: center;">
+        <div class="container">
+            <!-- Top Header Text -->
+            <div class="expert-legal-header">
+                <span class="expert-legal-tag">CLEAR ADVICE PROVIDERS</span>
+                <h2 class="expert-legal-title">
+                    Expert <span class="legal-highlight">Legal</span> Support
+                </h2>
+            </div>
+            
+            <div class="expert-legal-wrapper">
+                <!-- Combined Content Block -->
+                <div class="strategic-info-block">
+                    <div class="strategic-content-left">
+                        <h3 class="strategic-title">Strategic Information</h3>
+                        <p class="strategic-text">A clear plan matters. We outline the legal route, required documents, expected timelines, and hearing preparation before moving forward.</p>
+                        <a href="#" class="btn-know-more">Know More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="strategic-content-right">
+                        <div class="vertical-service-controls">
+                            <button class="vertical-arrow up"><i class="fas fa-chevron-up"></i></button>
+                        </div>
+                        <div class="vertical-services-numbered">
+                            <div class="vertical-service-numbered-item">
+                                <span class="service-number">01</span>
+                                <span class="service-name">Commercial Litigation</span>
+                            </div>
+                            <div class="vertical-service-numbered-item">
+                                <span class="service-number">02</span>
+                                <span class="service-name">Franchising & Licensing</span>
+                            </div>
+                            <div class="vertical-service-numbered-item">
+                                <span class="service-number">03</span>
+                                <span class="service-name">Bankruptcy & Insolvency</span>
+                            </div>
+                            <div class="vertical-service-numbered-item">
+                                <span class="service-number">04</span>
+                                <span class="service-name">Dispute Resolution</span>
+                            </div>
+                        </div>
+                        <div class="vertical-service-controls">
+                            <button class="vertical-arrow down"><i class="fas fa-chevron-down"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Clear advice Providers</span>
+                <h2 class="section-title">Expert legal Support</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1564069114553-7215e1ff1890?w=600&q=80" alt="Commercial Litigation">
+                    </div>
+                    <h3>Commercial Litigation</h3>
+                    <p class="service-subtitle">Strategic Information</p>
+                    <p>Notices, recovery matters, contract disputes, and business litigation with structured documentation and clear court strategy.</p>
+                    <a href="#" class="btn-link">Know More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80" alt="Business Law">
+                    </div>
+                    <h3>Franchising & Licensing</h3>
+                    <p class="service-subtitle">Business Relationship</p>
+                    <p>Agreements, compliance support, and documentation review for business relationships—tailored to your actual needs and scope.</p>
+                    <a href="#" class="btn-link">Know More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=600&q=80" alt="Bankruptcy Law">
+                    </div>
+                    <h3>Bankruptcy & Insolvency</h3>
+                    <p class="service-subtitle">Professional Agencies</p>
+                    <p>Guidance for debt-related disputes and insolvency documentation where applicable, based on jurisdiction and the facts.</p>
+                    <a href="#" class="btn-link">Know More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=600&q=80" alt="Dispute Resolution">
+                    </div>
+                    <h3>Dispute Resolution</h3>
+                    <p class="service-subtitle">Settling Outside</p>
+                    <p>Negotiation, mediation support, and court proceedings—focused on practical outcomes and documented settlements.</p>
+                    <a href="#" class="btn-link">Know More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-section-wrapper">
+                <!-- Left Content -->
+                <div class="about-left-content">
+                    <div class="about-header-left">
+                        <span class="section-tag">WHY GO WITH OUR LEGAL COMPANY</span>
+                        <h2 class="section-title-about">Compassion, Care & <span class="highlight-commitment">Commitment</span></h2>
+                        <p class="about-description">We focus on responsible legal support: clear advice, honest expectations, careful drafting, and diligent representation. Every case is different, so we start with the facts and documents, then plan the right legal route.</p>
+                    </div>
+                    
+                    <div class="about-tabs-grid">
+                        <button class="tab-btn active" data-tab="pride">PRIDE MOMENTS</button>
+                        <button class="tab-btn" data-tab="clients">OUR CLIENTS</button>
+                        <button class="tab-btn" data-tab="mission">MISSION & VISSION</button>
+                        <button class="tab-btn" data-tab="history">OUR HISTORY</button>
+                    </div>
+                    
+                    <div class="award-showcase" id="awardContent">
+                        <div class="award-number-display">#I</div>
+                        <div class="award-emblem">
+                            <div class="emblem-circle">
+                                <div class="emblem-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="emblem-text">CLIENT-FIRST LEGAL SUPPORT</div>
+                            </div>
+                        </div>
+                        <div class="award-info">
+                            <h3>Clear Communication</h3>
+                            <p>We share realistic timelines, required documents, and next hearing steps—so you always know what to expect.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Image -->
+                <div class="about-right-image">
+                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80" alt="Lady Justice">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Affordable pricing plan</h2>
+            </div>
+            <div class="pricing-toggle">
+                <span class="toggle-label">Monthly</span>
+                <label class="switch">
+                    <input type="checkbox" id="pricingToggle">
+                    <span class="slider"></span>
+                </label>
+                <span class="toggle-label">Yearly</span>
+            </div>
+            <div class="pricing-grid" id="pricingGrid">
+                <!-- Monthly Plans -->
+                <div class="pricing-card">
+                    <div class="price">
+                        <span class="currency">$</span>
+                        <span class="amount">29</span>
+                        <span class="period">Per Year</span>
+                    </div>
+                    <h3>Basic plan</h3>
+                    <ul class="features-list">
+                        <li>Free Consultation</li>
+                        <li>Conveyancing Fee</li>
+                        <li>Documentation Fee</li>
+                        <li>Professional Team</li>
+                        <li>Statutory Advertisement</li>
+                        <li>24/7 Full Support</li>
+                    </ul>
+                    <a href="#" class="btn-primary">purchase plan</a>
+                    <p class="terms">* Terms and conditions apply</p>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="price">
+                        <span class="currency">$</span>
+                        <span class="amount">49</span>
+                        <span class="period">Per Year</span>
+                    </div>
+                    <h3>Standard</h3>
+                    <ul class="features-list">
+                        <li>Free Consultation</li>
+                        <li>Conveyancing Fee</li>
+                        <li>Documentation Fee</li>
+                        <li>Professional Team</li>
+                        <li>Statutory Advertisement</li>
+                        <li>24/7 Full Support</li>
+                    </ul>
+                    <a href="#" class="btn-primary">purchase plan</a>
+                    <p class="terms">* Terms and conditions apply</p>
+                </div>
+                <div class="pricing-card">
+                    <div class="price">
+                        <span class="currency">$</span>
+                        <span class="amount">89</span>
+                        <span class="period">Per Year</span>
+                    </div>
+                    <h3>Premium</h3>
+                    <ul class="features-list">
+                        <li>Free Consultation</li>
+                        <li>Conveyancing Fee</li>
+                        <li>Documentation Fee</li>
+                        <li>Professional Team</li>
+                        <li>Statutory Advertisement</li>
+                        <li>24/7 Full Support</li>
+                    </ul>
+                    <a href="#" class="btn-primary">purchase plan</a>
+                    <p class="terms">* Terms and conditions apply</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Testimonial</span>
+                <h2 class="section-title">Customer Reviews</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <h4>Livio Daniel</h4>
+                    <p class="testimonial-role">Designer</p>
+                    <p>Clear guidance and timely updates. The team explained the process in simple language and helped me organize documents before every hearing.</p>
+                </div>
+                <div class="testimonial-card">
+                    <h4>Bibiana Virginia</h4>
+                    <p class="testimonial-role">Developer</p>
+                    <p>Professional drafting support. The notice and application were prepared neatly, and I always knew what the next step was.</p>
+                </div>
+                <div class="testimonial-card">
+                    <h4>Silvio Ararat</h4>
+                    <p class="testimonial-role">CEO</p>
+                    <p>Practical advice and a structured approach. They focused on facts and documentation, and communicated clearly about timelines.</p>
+                </div>
+                <div class="testimonial-card">
+                    <h4>Onofrio Lucio</h4>
+                    <p class="testimonial-role">Director</p>
+                    <p>Supportive and responsive. I received quick clarifications and regular updates, which made the process less stressful.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% endblock %}

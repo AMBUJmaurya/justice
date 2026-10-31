@@ -1,0 +1,47 @@
+{% load static %}
+<header class="header">
+    <div class="top-header">
+        <div class="container">
+            {% if current_page == 'home' %}
+            <marquee class="marquee-header" behavior="scroll" direction="left" scrollamount="3">
+                <div class="marquee-content">
+                    <span class="marquee-item"><i class="fas fa-phone"></i> +91-6387380776</span>
+                    <span class="marquee-separator">&bull;</span>
+                    <a href="{% url 'main:contacts' %}" class="marquee-item btn-get-quote-marquee">Get Quote</a>
+                </div>
+            </marquee>
+            {% else %}
+            <div class="top-header-content">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> +91-6387380776</span>
+                </div>
+                <div class="header-actions">
+                    <a href="{% url 'main:contacts' %}" class="btn-get-quote">Get Quote</a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="{% url 'main:home' %}"><img src="{% static 'images/logo.png' %}" alt="BYLAW Logo"></a>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="{% url 'main:home' %}"{% if current_page == 'home' %} class="active"{% endif %}>Home</a></li>
+                    <li><a href="{% url 'main:about' %}"{% if current_page == 'about' %} class="active"{% endif %}>About</a></li>
+                    <li><a href="{% url 'main:practice_areas' %}"{% if current_page == 'practice_areas' %} class="active"{% endif %}>Practice Areas</a></li>
+                    <li><a href="{% url 'main:courts' %}"{% if current_page == 'courts' %} class="active"{% endif %}>Courts</a></li>
+                    <li><a href="{% url 'main:advocates' %}"{% if current_page == 'advocates' %} class="active"{% endif %}>Advocates</a></li>
+                    <li><a href="{% url 'main:contacts' %}"{% if current_page == 'contacts' %} class="active"{% endif %}>Contacts</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

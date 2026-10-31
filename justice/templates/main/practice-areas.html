@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% block title %}Practice Areas - ByLaw Site{% endblock %}
+
+{% block content %}
+<!-- Page Hero -->
+    <section class="page-hero" style="background-image: linear-gradient(rgba(26, 52, 88, 0.8), rgba(44, 90, 160, 0.8)), url('https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=1920&q=80'); background-size: cover; background-position: center;">
+        <div class="container">
+            <h1>Practice Areas</h1>
+            <p>Expert Legal Services in Various Fields</p>
+        </div>
+    </section>
+
+    <!-- Practice Areas Section -->
+    <section class="practice-areas-page">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Multidisciplinary Team</span>
+                <h2 class="section-title">We Expertise On</h2>
+                <p>We provide legal assistance across key practice areas. From consultation and documentation to court representation, we help you choose the right legal route and proceed step-by-step.</p>
+            </div>
+
+            <div class="practice-areas-grid">
+                {% if practice_areas %}
+                {% for area in practice_areas %}
+                <div class="practice-area-card">
+                    <div class="practice-icon"><i class="{{ area.icon_class|default:'fas fa-balance-scale' }}"></i></div>
+                    <h3>{{ area.title }}</h3>
+                    {% if area.case_count %}<p class="case-count">{{ area.case_count }} Case Solved</p>{% endif %}
+                    <p>
+                        {% if area.short_description %}
+                            {{ area.short_description }}
+                        {% else %}
+                            {{ area.description|truncatechars:180 }}
+                        {% endif %}
+                    </p>
+                    <a href="#" class="btn-link">Learn More</a>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="practice-area-card">
+                    <div class="practice-icon"><i class="fas fa-users"></i></div>
+                    <h3>Family Law</h3>
+                    <p class="case-count">Matrimonial & family matters</p>
+                    <p>Divorce, restitution, maintenance, domestic violence, child custody and related proceedings with respectful, practical guidance.</p>
+                    <a href="#" class="btn-link">Learn More</a>
+                </div>
+                <div class="practice-area-card">
+                    <div class="practice-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Criminal Law</h3>
+                    <p class="case-count">Bail, trial & defense</p>
+                    <p>Bail applications, anticipatory bail, trial representation, complaints, and advisory for police/court procedures.</p>
+                    <a href="#" class="btn-link">Learn More</a>
+                </div>
+                <div class="practice-area-card">
+                    <div class="practice-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3>Civil Law</h3>
+                    <p class="case-count">Suits, injunctions & recovery</p>
+                    <p>Property disputes, civil suits, injunctions, recovery matters, and execution proceedings with strong documentation support.</p>
+                    <a href="#" class="btn-link">Learn More</a>
+                </div>
+                <div class="practice-area-card">
+                    <div class="practice-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>Documentation & Drafting</h3>
+                    <p class="case-count">Notices, agreements & affidavits</p>
+                    <p>Legal notices, agreements, affidavits, applications, replies, and document review with a focus on clarity and compliance.</p>
+                    <a href="#" class="btn-link">Learn More</a>
+                </div>
+                <div class="practice-area-card">
+                    <div class="practice-icon"><i class="fas fa-home"></i></div>
+                    <h3>Real Estate Law</h3>
+                    <p class="case-count">Property, registry & disputes</p>
+                    <p>Sale deeds, agreements, mutation support, landlord-tenant issues, and property dispute litigation.</p>
+                    <a href="#" class="btn-link">Learn More</a>
+                </div>
+                <div class="practice-area-card">
+                    <div class="practice-icon"><i class="fas fa-receipt"></i></div>
+                    <h3>Cheque Bounce (NI Act)</h3>
+                    <p class="case-count">Section 138 matters</p>
+                    <p>Legal notice, complaint drafting, filing support, and representation for cheque bounce cases under the Negotiable Instruments Act.</p>
+                    <a href="#" class="btn-link">Learn More</a>
+                </div>
+                <div class="practice-area-card">
+                    <div class="practice-icon"><i class="fas fa-file-signature"></i></div>
+                    <h3>Succession & Probate</h3>
+                    <p class="case-count">Inheritance documentation</p>
+                    <p>Succession certificate, legal heir matters, probate support, and guidance on inheritance-related documentation.</p>
+                    <a href="#" class="btn-link">Learn More</a>
+                </div>
+                <div class="practice-area-card">
+                    <div class="practice-icon"><i class="fas fa-user-shield"></i></div>
+                    <h3>Consumer & Service Disputes</h3>
+                    <p class="case-count">Consumer complaints</p>
+                    <p>Assistance with consumer complaints, replies, documentation and representation for service deficiency issues.</p>
+                    <a href="#" class="btn-link">Learn More</a>
+                </div>
+                <div class="practice-area-card">
+                    <div class="practice-icon"><i class="fas fa-lock"></i></div>
+                    <h3>Cybercrime</h3>
+                    <p class="case-count">Online fraud & cyber complaints</p>
+                    <p>Guidance for cyber complaints, documentation, notices, and legal steps related to online fraud and digital harassment.</p>
+                    <a href="#" class="btn-link">Learn More</a>
+                </div>
+                <div class="practice-area-card">
+                    <div class="practice-icon"><i class="fas fa-ban"></i></div>
+                    <h3>Anti-Corruption</h3>
+                    <p class="case-count">Advisory & compliance</p>
+                    <p>Guidance on complaints, documentation, and legal compliance steps where applicable (based on facts and jurisdiction).</p>
+                    <a href="#" class="btn-link">Learn More</a>
+                </div>
+                <div class="practice-area-card">
+                    <div class="practice-icon"><i class="fas fa-building"></i></div>
+                    <h3>Business & Contracts</h3>
+                    <p class="case-count">Agreements & disputes</p>
+                    <p>Contract drafting/review, partnership matters, notices, and dispute support for small businesses and professionals.</p>
+                    <a href="#" class="btn-link">Learn More</a>
+                </div>
+                <div class="practice-area-card">
+                    <div class="practice-icon"><i class="fas fa-hands-helping"></i></div>
+                    <h3>Legal Consultation</h3>
+                    <p class="case-count">Advice & next steps</p>
+                    <p>Case assessment, document checklist, and a practical plan of action with clear timelines and court procedure guidance.</p>
+                    <a href="#" class="btn-link">Learn More</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    {% endblock %}

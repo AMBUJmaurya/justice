@@ -1,0 +1,148 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}Contact Us - ByLaw Site{% endblock %}
+
+{% block content %}
+<!-- Page Hero -->
+    <section class="page-hero" style="background-image: linear-gradient(rgba(26, 52, 88, 0.8), rgba(44, 90, 160, 0.8)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1920&q=80'); background-size: cover; background-position: center;">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <div class="breadcrumbs">
+                <a href="{% url 'main:home' %}">Home</a>
+                <span>/</span>
+                <span>Contact Us</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Cards -->
+    <section class="contact-cards-section">
+        <div class="container">
+            <div class="contact-cards-grid">
+                <div class="contact-card">
+                    <div class="contact-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h3>Our Location</h3>
+                    <p>District &amp; Sessions Court<br>Ayodhya, Uttar Pradesh, India</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card-icon"><i class="fas fa-phone-alt"></i></div>
+                    <h3>Call Us</h3>
+                    <p>+00-123-456789<br>+00-123-456790</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Email Us</h3>
+                    <p>info@bylaw.com<br>support@bylaw.com</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Office Hours</h3>
+                    <p>Mon - Fri: 9AM - 6PM<br>Sat: 10AM - 4PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form + Map Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="contact-form-grid">
+                <!-- Left: Form -->
+                <div class="contact-form-box">
+                    <h2>Send Us a Message</h2>
+                    {% if form.non_field_errors %}
+                    <div class="form-error-summary">{{ form.non_field_errors }}</div>
+                    {% endif %}
+                    <p class="form-subtitle">Have a legal question? Fill the form below and our team will get back to you within 24 hours.</p>
+                    <form class="contact-form" id="contactForm" method="post" novalidate>
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name <span>*</span></label>
+                                {{ form.first_name }}
+                                {% if form.first_name.errors %}<div class="field-error">{{ form.first_name.errors|join:', ' }}</div>{% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name <span>*</span></label>
+                                {{ form.last_name }}
+                                {% if form.last_name.errors %}<div class="field-error">{{ form.last_name.errors|join:', ' }}</div>{% endif %}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address <span>*</span></label>
+                                {{ form.email }}
+                                {% if form.email.errors %}<div class="field-error">{{ form.email.errors|join:', ' }}</div>{% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                {{ form.phone }}
+                                {% if form.phone.errors %}<div class="field-error">{{ form.phone.errors|join:', ' }}</div>{% endif %}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject <span>*</span></label>
+                            {{ form.subject }}
+                                {% if form.subject.errors %}<div class="field-error">{{ form.subject.errors|join:', ' }}</div>{% endif %}
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Legal Service</label>
+                            {{ form.service }}
+                                {% if form.service.errors %}<div class="field-error">{{ form.service.errors|join:', ' }}</div>{% endif %}
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message <span>*</span></label>
+                            {{ form.message }}
+                                {% if form.message.errors %}<div class="field-error">{{ form.message.errors|join:', ' }}</div>{% endif %}
+                        </div>
+                        <div class="form-group checkbox-group">
+                            {{ form.terms }}
+                                {% if form.terms.errors %}<div class="field-error">{{ form.terms.errors|join:', ' }}</div>{% endif %}
+                            <label for="terms">I agree to the <a href="#">terms and conditions</a> and <a href="#">privacy policy</a>.</label>
+                        </div>
+                        <button type="submit" class="btn-contact-submit">
+                            Send Message <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+                <!-- Right: Map -->
+                <div class="contact-map-box">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps?q=District%20%26%20Sessions%20Court%2C%20Ayodhya%2C%20Uttar%20Pradesh&amp;output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="map-info-box">
+                        <h3><i class="fas fa-balance-scale"></i> ByLaw Legal Firm</h3>
+                        <p><i class="fas fa-map-pin"></i> District &amp; Sessions Court, Ayodhya, Uttar Pradesh, India</p>
+                        <p><i class="fas fa-phone"></i> +00-123-456789</p>
+                        <a href="https://www.google.com/maps?q=District+%26+Sessions+Court,+Ayodhya,+Uttar+Pradesh" target="_blank" rel="noopener noreferrer" class="btn-directions">Get Directions <i class="fas fa-directions"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Area Section -->
+    <section class="offices-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Service Areas</span>
+                <h2 class="section-title">Where We Assist</h2>
+            </div>
+            <div class="offices-grid">
+                <div class="office-card">
+                    <h3>Ayodhya (UP)</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> District &amp; Sessions Court, Ayodhya</p>
+                    <p><i class="fas fa-phone"></i> +91-6387380776</p>
+                    <p><i class="fas fa-envelope"></i> info@bylaw.com</p>
+                </div>
+                <div class="office-card">
+                    <h3>Uttar Pradesh</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> District courts &amp; authorities (as per jurisdiction)</p>
+                    <p><i class="fas fa-phone"></i> +91-6387380776</p>
+                    <p><i class="fas fa-envelope"></i> info@bylaw.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% endblock %}
